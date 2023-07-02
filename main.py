@@ -21,4 +21,5 @@ def play_game():
         think_of_a_number.play_think_of_a_number()
 
 if __name__ == "__main__":
-    play_game()
+        
+        play_game()

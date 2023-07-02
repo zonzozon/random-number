@@ -20,5 +20,5 @@ def play_guess_the_number():
 
         print("You have reached the maximum number of attempts.")
         print("The target number was", target_number)
-
+    
     guess_number()

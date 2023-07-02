@@ -44,5 +44,5 @@ def play_think_of_a_number():
         play_think_of_a_number()
     else:
         print("Thank you for playing!")
-
-play_think_of_a_number()
+    
+    play_think_of_a_number()
