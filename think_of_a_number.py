@@ -17,20 +17,20 @@ def play_think_of_a_number():
             return
 
     print("I have exhausted my attempts.")
-    user_number = input("What is the number? ")
+    user_number = input("What was the number? ")
 
     while not user_number.isdigit():
         print("Invalid input! Please enter a valid number.")
-        user_number = input("What is the number? ")
+        user_number = input("What was the number? ")
 
     user_number = int(user_number)
 
     if user_number > max_number:
         print("The number you entered is greater than the maximum number.")
-        print(f"The maximum number is {max_number}.")
+        print(f"The maximum number was {max_number}.")
     elif user_number < min_number:
         print("The number you entered is less than the minimum number.")
-        print(f"The minimum number is {min_number}.")
+        print(f"The minimum number was {min_number}.")
     else:
         print("You entered a number within the valid range.")
 
