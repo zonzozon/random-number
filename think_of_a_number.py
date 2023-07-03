@@ -2,8 +2,19 @@ import random
 
 def play_think_of_a_number():
     def play_game():
-        min_number = int(input("Enter the minimum number: "))
-        max_number = int(input("Enter the maximum number: "))
+        while True:
+            try:
+                min_number = int(input("Enter the minimum number: "))
+                break
+            except ValueError:
+                print("Invalid input! Please enter a valid number.")
+
+        while True:
+            try:
+                max_number = int(input("Enter the maximum number: "))
+                break
+            except ValueError:
+                print("Invalid input! Please enter a valid number.")
 
         while True:
             try:
