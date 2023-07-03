@@ -3,23 +3,36 @@ import random
 def play_guess_the_number():
     def guess_number():
         while True:
-            try:
-                min_number = int(input("Enter the minimum number: "))
-                max_number = int(input("Enter the maximum number: "))
-                attempts = int(input("Enter the number of attempts: "))
-                break
-            except ValueError:
+            min_number = input("Enter the minimum number: ")
+            if not min_number.isdigit():
                 print("Invalid input! Please enter a valid number.")
+                continue
+
+            max_number = input("Enter the maximum number: ")
+            if not max_number.isdigit():
+                print("Invalid input! Please enter a valid number.")
+                continue
+
+            attempts = input("Enter the number of attempts: ")
+            if not attempts.isdigit():
+                print("Invalid input! Please enter a valid number.")
+                continue
+
+            min_number = int(min_number)
+            max_number = int(max_number)
+            attempts = int(attempts)
+            break
 
         target_number = random.randint(min_number, max_number)
 
         while attempts > 0:
             while True:
-                try:
-                    guess = int(input(f"Guess a number between {min_number} and {max_number}: "))
-                    break
-                except ValueError:
+                guess = input(f"Guess a number between {min_number} and {max_number}: ")
+                if not guess.isdigit():
                     print("Invalid input! Please enter a valid number.")
+                    continue
+                guess = int(guess)
+                break
 
             if guess == target_number:
                 print("You won!")
