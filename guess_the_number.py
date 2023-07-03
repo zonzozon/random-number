@@ -27,6 +27,7 @@ def play_guess_the_number():
 
             print("You lost! Try again.")
             attempts -= 1
+            print(f"Remaining attempts: {attempts}")
 
         print("You have reached the maximum number of attempts.")
         print("The target number was", target_number)
