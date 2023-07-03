@@ -12,6 +12,10 @@ def play_think_of_a_number():
         while attempts < max_attempts:
             attempts += 1
             guess = input(f"Is {target_number} your number? [y/n]: ")
+            
+            while not guess.lower() in ['y', 'n']:
+                print("Invalid input! Please enter 'y' or 'n'.")
+                guess = input(f"Is {target_number} your number? [y/n]: ")
 
             if guess.lower() == 'y':
                 print("I guessed your number!")
@@ -42,7 +46,7 @@ def play_think_of_a_number():
             print("The number you entered is less than the minimum number.")
             print(f"The minimum number was {min_number}.")
         else:
-            print("You entered a number within the valid range.")
+            print("Good Game")
 
     while True:
         play_game()
