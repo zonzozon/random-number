@@ -15,11 +15,10 @@ def play_game():
     game_mode = get_game_mode()
     if game_mode == '1':
         import guess_the_number
-        guess_the_number.play_guess_the_number()
+        guess_the_number.play_guess_user_number()
     else:
         import think_of_a_number
         think_of_a_number.play_think_of_a_number()
 
 if __name__ == "__main__":
-        
-        play_game()
+    play_game()
