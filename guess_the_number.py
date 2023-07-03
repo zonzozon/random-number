@@ -22,15 +22,15 @@ def play_guess_user_number():
         print("The target number was", target_number)
         return False
 
-        continue_game = input("Do you want to continue with the game? [1: Yes, 2: No]: ") 
-  
-     while continue_game not in ['1', '2']: 
-         print("Invalid input! Please enter either 1 or 2.") 
-         continue_game = input("Do you want to continue with the game? [1: Yes, 2: No]: ") 
-  
-     if continue_game == '1': 
-         play_guess_the_number() 
-     else: 
-         print("Thank you for playing!")
+    continue_game = input("Do you want to continue with the game? [1: Yes, 2: No]: ")
+
+    while continue_game not in ['1', '2']:
+        print("Invalid input! Please enter either 1 or 2.")
+        continue_game = input("Do you want to continue with the game? [1: Yes, 2: No]: ")
+
+    if continue_game == '1':
+        play_guess_user_number()
+    else:
+        print("Thank you for playing!")
 
 play_guess_user_number()
