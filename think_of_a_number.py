@@ -15,6 +15,10 @@ def play_think_of_a_number():
         if guess.lower() == 'y':
             print("I guessed your number!")
             return
+        else:
+            available_numbers = list(range(min_number, max_number + 1))
+            available_numbers.remove(target_number)
+            target_number = random.choice(available_numbers)
 
     print("I have exhausted my attempts.")
     user_number = input("What was the number? ")
@@ -25,7 +29,10 @@ def play_think_of_a_number():
 
     user_number = int(user_number)
 
-    if user_number > max_number:
+    if user_number == target_number:
+        print("You entered the number you previously indicated was not correct.")
+        print("The game ends.")
+    elif user_number > max_number:
         print("The number you entered is greater than the maximum number.")
         print(f"The maximum number was {max_number}.")
     elif user_number < min_number:
@@ -44,5 +51,5 @@ def play_think_of_a_number():
         play_think_of_a_number()
     else:
         print("Thank you for playing!")
-    
-    play_think_of_a_number()
+
+play_think_of_a_number()
