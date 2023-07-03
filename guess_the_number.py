@@ -13,24 +13,24 @@ def play_guess_user_number():
 
             if guess == target_number:
                 print("You won!")
-                return True
+                return
 
             print("You lost! Try again.")
             attempts -= 1
 
         print("You have reached the maximum number of attempts.")
         print("The target number was", target_number)
-        return False
 
-    continue_game = input("Do you want to continue with the game? [1: Yes, 2: No]: ")
+play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
+    while play_again not in ['1', '2']:
+        print("Invalid input! Please enter [1] to continue with the game, or [2] to change the game.")
+        play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
 
-    while continue_game not in ['1', '2']:
-        print("Invalid input! Please enter either 1 or 2.")
-        continue_game = input("Do you want to continue with the game? [1: Yes, 2: No]: ")
-
-    if continue_game == '1':
-        play_guess_user_number()
-    else:
+    if play_again == '1':
+        play_guess_the_number()
+else:
         print("Thank you for playing!")
 
-play_guess_user_number()
+
+
+    guess_number()
