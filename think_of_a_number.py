@@ -17,6 +17,8 @@ def play_think_of_a_number():
                 print("I guessed your number!")
                 return
 
+            print(f"Remaining attempts: {max_attempts - attempts}")
+
             available_numbers = list(range(min_number, max_number + 1))
             available_numbers.remove(target_number)
             target_number = random.choice(available_numbers)
@@ -42,17 +44,17 @@ def play_think_of_a_number():
         else:
             print("You entered a number within the valid range.")
 
-    play_game()
+    while True:
+        play_game()
 
-    continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
-
-    while continue_game not in ['1', '2']:
-        print("Invalid input! Please enter either 1 or 2.")
         continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
 
-    if continue_game == '1':
-        play_think_of_a_number()
-    else:
-        print("Thank you for playing!")
+        while continue_game not in ['1', '2']:
+            print("Invalid input! Please enter either 1 or 2.")
+            continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
+
+        if continue_game == '2':
+            print("Thank you for playing!")
+            break
 
 play_think_of_a_number()
