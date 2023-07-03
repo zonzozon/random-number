@@ -1,6 +1,6 @@
 import random
 
-def play_guess_user_number():
+def play_guess_the_number():
     def guess_number():
         min_number = int(input("Enter the minimum number: "))
         max_number = int(input("Enter the maximum number: "))
@@ -13,19 +13,17 @@ def play_guess_user_number():
 
             if guess == target_number:
                 print("You won!")
-                return True
+                return
 
             print("You lost! Try again.")
             attempts -= 1
 
         print("You have reached the maximum number of attempts.")
         print("The target number was", target_number)
-        return False
 
     while True:
-        if guess_number():
-            break
-
+        guess_number()
+        
         play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
         while play_again not in ['1', '2']:
             print("Invalid input! Please enter [1] to continue with the game, or [2] to exit.")
@@ -35,4 +33,4 @@ def play_guess_user_number():
             print("Thank you for playing!")
             break
 
-play_guess_user_number()
+play_guess_the_number()
