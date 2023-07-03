@@ -4,7 +4,13 @@ def play_think_of_a_number():
     def play_game():
         min_number = int(input("Enter the minimum number: "))
         max_number = int(input("Enter the maximum number: "))
-        max_attempts = int(input("Enter the maximum number of attempts: "))
+
+        while True:
+            try:
+                max_attempts = int(input("Enter the maximum number of attempts: "))
+                break
+            except ValueError:
+                print("Invalid input! Please enter a valid number.")
 
         target_number = random.randint(min_number, max_number)
         attempts = 0
@@ -12,7 +18,7 @@ def play_think_of_a_number():
         while attempts < max_attempts:
             attempts += 1
             guess = input(f"Is {target_number} your number? [y/n]: ")
-            
+
             while not guess.lower() in ['y', 'n']:
                 print("Invalid input! Please enter 'y' or 'n'.")
                 guess = input(f"Is {target_number} your number? [y/n]: ")
