@@ -1,81 +1,44 @@
 import random
 
-def play_think_of_a_number():
-    def play_game():
+def play_guess_the_number():
+    def guess_number():
         while True:
             try:
                 min_number = int(input("Enter the minimum number: "))
-                break
-            except ValueError:
-                print("Invalid input! Please enter a valid number.")
-
-        while True:
-            try:
                 max_number = int(input("Enter the maximum number: "))
-                break
-            except ValueError:
-                print("Invalid input! Please enter a valid number.")
-
-        while True:
-            try:
-                max_attempts = int(input("Enter the maximum number of attempts: "))
+                attempts = int(input("Enter the number of attempts: "))
                 break
             except ValueError:
                 print("Invalid input! Please enter a valid number.")
 
         target_number = random.randint(min_number, max_number)
-        attempts = 0
 
-        while attempts < max_attempts:
-            attempts += 1
-            guess = input(f"Is {target_number} your number? [y/n]: ")
+        while attempts > 0:
+            while True:
+                try:
+                    guess = int(input(f"Guess a number between {min_number} and {max_number}: "))
+                    break
+                except ValueError:
+                    print("Invalid input! Please enter a valid number.")
 
-            while not guess.lower() in ['y', 'n']:
-                print("Invalid input! Please enter 'y' or 'n'.")
-                guess = input(f"Is {target_number} your number? [y/n]: ")
-
-            if guess.lower() == 'y':
-                print("I guessed your number!")
+            if guess == target_number:
+                print("You won!")
                 return
 
-            print(f"Remaining attempts: {max_attempts - attempts}")
+            print("You lost! Try again.")
+            attempts -= 1
 
-            available_numbers = list(range(min_number, max_number + 1))
-            available_numbers.remove(target_number)
-            target_number = random.choice(available_numbers)
+        print("You have reached the maximum number of attempts.")
+        print("The target number was", target_number)
 
-        print("I have exhausted my attempts.")
-        user_number = input("What was the number? ")
+    guess_number()
 
-        while not user_number.isdigit():
-            print("Invalid input! Please enter a valid number.")
-            user_number = input("What was the number? ")
+    play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
+    while play_again not in ['1', '2']:
+        print("Invalid input! Please enter [1] to continue with the game, or [2] to exit.")
+        play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
 
-        user_number = int(user_number)
+    if play_again == '1':
+        play_guess_the_number()
 
-        if user_number == target_number:
-            print("You entered the number you previously indicated was not correct.")
-            print("The game ends.")
-        elif user_number > max_number:
-            print("The number you entered is greater than the maximum number.")
-            print(f"The maximum number was {max_number}.")
-        elif user_number < min_number:
-            print("The number you entered is less than the minimum number.")
-            print(f"The minimum number was {min_number}.")
-        else:
-            print("Good Game")
-
-    while True:
-        play_game()
-
-        continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
-
-        while continue_game not in ['1', '2']:
-            print("Invalid input! Please enter either 1 or 2.")
-            continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
-
-        if continue_game == '2':
-            print("Thank you for playing!")
-            break
-
-play_think_of_a_number()
+play_guess_the_number()
