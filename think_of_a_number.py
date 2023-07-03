@@ -68,14 +68,13 @@ def play_think_of_a_number():
     while True:
         play_game()
 
-        continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
+        play_again = input("Do you want to continue playing? [1: Yes, 2: No]: ")
 
         while continue_game not in ['1', '2']:
             print("Invalid input! Please enter either 1 or 2.")
             continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
 
-        if continue_game == '2':
-            print("Thank you for playing!")
-            break
+        if play_again == '1':
+            play_think_of_a_number()
 
 play_think_of_a_number()
