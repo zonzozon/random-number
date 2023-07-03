@@ -70,7 +70,7 @@ def play_think_of_a_number():
 
         play_again = input("Do you want to continue playing? [1: Yes, 2: No]: ")
 
-        while continue_game not in ['1', '2']:
+        while play_again not in ['1', '2']:
             print("Invalid input! Please enter either 1 or 2.")
             continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
 
