@@ -42,15 +42,17 @@ def play_think_of_a_number():
         else:
             print("You entered a number within the valid range.")
 
-    continue_game = '1'
-    while continue_game == '1':
-        play_game()
+    play_game()
+
+    continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
+
+    while continue_game not in ['1', '2']:
+        print("Invalid input! Please enter either 1 or 2.")
         continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
 
-        while continue_game not in ['1', '2']:
-            print("Invalid input! Please enter either 1 or 2.")
-            continue_game = input("Do you want to continue playing? [1: Yes, 2: No]: ")
-
-    print("Thank you for playing!")
+    if continue_game == '1':
+        play_think_of_a_number()
+    else:
+        print("Thank you for playing!")
 
 play_think_of_a_number()
