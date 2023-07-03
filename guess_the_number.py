@@ -13,16 +13,18 @@ def play_guess_user_number():
 
             if guess == target_number:
                 print("You won!")
-                return
+                return True
 
             print("You lost! Try again.")
             attempts -= 1
 
         print("You have reached the maximum number of attempts.")
         print("The target number was", target_number)
+        return False
 
     while True:
-        guess_number()
+        if guess_number():
+            break
 
         play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
         while play_again not in ['1', '2']:
