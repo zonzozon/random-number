@@ -21,16 +21,16 @@ def play_guess_user_number():
         print("You have reached the maximum number of attempts.")
         print("The target number was", target_number)
 
-play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
-    while play_again not in ['1', '2']:
-        print("Invalid input! Please enter [1] to continue with the game, or [2] to change the game.")
+    while True:
+        guess_number()
+
         play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
+        while play_again not in ['1', '2']:
+            print("Invalid input! Please enter [1] to continue with the game, or [2] to exit.")
+            play_again = input("Do you want to continue with the game? [1] Yes, [2] No: ")
 
-    if play_again == '1':
-        play_guess_the_number()
-else:
-        print("Thank you for playing!")
+        if play_again == '2':
+            print("Thank you for playing!")
+            break
 
-
-
-    guess_number()
+play_guess_user_number()
